@@ -176,7 +176,7 @@ def main():
         from mmcls.datasets import ImageNet
         warnings.simplefilter('once')
         warnings.warn('Class names are not saved in the checkpoint\'s '
-                      'meta data, use imagenet by default.')
+                      'meta data, use origin by default.')
         CLASSES = ImageNet.CLASSES
 
     if not distributed:

@@ -205,17 +205,17 @@ data = dict(
     workers_per_gpu=2,     # 单个 GPU 的 线程数
     train=dict(            # 训练数据信息
         type=dataset_type,                  # 数据集名称
-        data_prefix='data/imagenet/train',  # 数据集目录，当不存在 ann_file 时，类别信息从文件夹自动获取
+        data_prefix='data/origin/train',  # 数据集目录，当不存在 ann_file 时，类别信息从文件夹自动获取
         pipeline=train_pipeline),           # 数据集需要经过的 数据流水线
     val=dict(              # 验证数据集信息
         type=dataset_type,
-        data_prefix='data/imagenet/val',
-        ann_file='data/imagenet/meta/val.txt',   # 标注文件路径，存在 ann_file 时，不通过文件夹自动获取类别信息
+        data_prefix='data/origin/val',
+        ann_file='data/origin/meta/val.txt',   # 标注文件路径，存在 ann_file 时，不通过文件夹自动获取类别信息
         pipeline=test_pipeline),
     test=dict(             # 测试数据集信息
         type=dataset_type,
-        data_prefix='data/imagenet/val',
-        ann_file='data/imagenet/meta/val.txt',
+        data_prefix='data/origin/val',
+        ann_file='data/origin/meta/val.txt',
         pipeline=test_pipeline))
 evaluation = dict(       # evaluation hook 的配置
     interval=1,          # 验证期间的间隔，单位为 epoch 或者 iter， 取决于 runner 类型。
@@ -284,9 +284,9 @@ runner = dict(max_epochs=300)
 lr_config = dict(step=[150, 200, 250])
 
 data = dict(
-    train=dict(data_prefix='mydata/imagenet/train'),
-    val=dict(data_prefix='mydata/imagenet/train', ),
-    test=dict(data_prefix='mydata/imagenet/train', )
+    train=dict(data_prefix='mydata/origin/train'),
+    val=dict(data_prefix='mydata/origin/train', ),
+    test=dict(data_prefix='mydata/origin/train', )
 )
 ```
 
