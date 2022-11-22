@@ -1,7 +1,8 @@
 _base_ = ['./pipelines/rand_aug.py']
 
 # dataset settings
-dataset_type = 'ImageNet'
+dataset_type = 'CustomDataset'
+classes=['공인본','대구개인본']
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 
@@ -50,22 +51,23 @@ test_pipeline = [
     dict(type='Collect', keys=['img'])
 ]
 data = dict(
-    samples_per_gpu=64,
-    workers_per_gpu=8,
+    #samples_per_gpu=64,
+    #workers_per_gpu=8,
     train=dict(
         type=dataset_type,
-        data_prefix='data/imagenet/train',
+        data_prefix='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/train',
+        ann_file='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/meta/train.txt',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        data_prefix='data/imagenet/val',
-        ann_file='data/imagenet/meta/val.txt',
+        data_prefix='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/val',
+        ann_file='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/meta/val.txt',
         pipeline=test_pipeline),
     test=dict(
         # replace `data/val` with `data/test` for standard test
         type=dataset_type,
-        data_prefix='data/imagenet/val',
-        ann_file='data/imagenet/meta/val.txt',
+        data_prefix='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/test',
+        ann_file='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/meta/test.txt',
         pipeline=test_pipeline))
 
 evaluation = dict(interval=10, metric='accuracy')
