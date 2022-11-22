@@ -41,7 +41,7 @@ rand_increasing_policies = [
         direction='vertical')
 ]
 dataset_type = 'CustomDataset'
-classes = ['공인본', '대구개인본']
+classes = ['공인본', '증도가']
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -51,6 +51,7 @@ train_pipeline = [
         size=224,
         backend='pillow',
         interpolation='bicubic'),
+    dict(type='RandomGrayscale', gray_prob=1),
     dict(type='RandomFlip', flip_prob=0.5, direction='horizontal'),
     dict(
         type='RandAugment',
@@ -151,9 +152,9 @@ data = dict(
     train=dict(
         type='CustomDataset',
         data_prefix=
-        '/content/drive/MyDrive/Colab Notebooks/MMClassification/configs/custom_jh/helper/data/train',
+        '/content/drive/MyDrive/MMClassification/configs/custom_jh/helper/data/train',
         ann_file=
-        '/content/drive/MyDrive/Colab Notebooks/MMClassification/configs/custom_jh/helper/data/meta/train.txt',
+        '/content/drive/MyDrive/MMClassification/configs/custom_jh/helper/data/meta/train.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -161,6 +162,7 @@ data = dict(
                 size=224,
                 backend='pillow',
                 interpolation='bicubic'),
+            dict(type='RandomGrayscale', gray_prob=1),
             dict(type='RandomFlip', flip_prob=0.5, direction='horizontal'),
             dict(
                 type='RandAugment',
@@ -247,9 +249,9 @@ data = dict(
     val=dict(
         type='CustomDataset',
         data_prefix=
-        '/content/drive/MyDrive/Colab Notebooks/MMClassification/configs/custom_jh/helper/data/val',
+        '/content/drive/MyDrive/MMClassification/configs/custom_jh/helper/data/val',
         ann_file=
-        '/content/drive/MyDrive/Colab Notebooks/MMClassification/configs/custom_jh/helper/data/meta/val.txt',
+        '/content/drive/MyDrive/MMClassification/configs/custom_jh/helper/data/meta/val.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -269,9 +271,9 @@ data = dict(
     test=dict(
         type='CustomDataset',
         data_prefix=
-        '/content/drive/MyDrive/Colab Notebooks/MMClassification/configs/custom_jh/helper/data/val',
+        '/content/drive/MyDrive/MMClassification/configs/custom_jh/helper/data/test',
         ann_file=
-        '/content/drive/MyDrive/Colab Notebooks/MMClassification/configs/custom_jh/helper/data/meta/val.txt',
+        '/content/drive/MyDrive/MMClassification/configs/custom_jh/helper/data/meta/test.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
