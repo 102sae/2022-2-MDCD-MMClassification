@@ -18,5 +18,4 @@ for x in folder_name:
         f.write('증도가/'+x+' 1'+'\n')
 
       f.close()
-    
 
