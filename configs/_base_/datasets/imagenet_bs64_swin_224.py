@@ -55,6 +55,7 @@ data = dict(
     #workers_per_gpu=8,
     train=dict(
         type=dataset_type,
+<<<<<<< HEAD
         data_prefix='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/train',
         ann_file='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/meta/train.txt',
         pipeline=train_pipeline),
@@ -62,12 +63,25 @@ data = dict(
         type=dataset_type,
         data_prefix='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/val',
         ann_file='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/meta/val.txt',
+=======
+        data_prefix='data/origin/train',
+        pipeline=train_pipeline),
+    val=dict(
+        type=dataset_type,
+        data_prefix='data/origin/val',
+        ann_file='data/origin/meta/val.txt',
+>>>>>>> 9db91549dd06675e0d1e60f14ab152a5ceedda17
         pipeline=test_pipeline),
     test=dict(
         # replace `data/val` with `data/test` for standard test
         type=dataset_type,
+<<<<<<< HEAD
         data_prefix='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/test',
         ann_file='/content/drive/MyDrive/Colab Notebooks/MMClassification/dataset/meta/test.txt',
+=======
+        data_prefix='data/origin/val',
+        ann_file='data/origin/meta/val.txt',
+>>>>>>> 9db91549dd06675e0d1e60f14ab152a5ceedda17
         pipeline=test_pipeline))
 
 evaluation = dict(interval=10, metric='accuracy')

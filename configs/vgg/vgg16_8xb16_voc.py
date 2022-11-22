@@ -9,7 +9,7 @@ model = dict(
         type='MultiLabelClsHead',
         loss=dict(type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0)))
 
-# load model pretrained on imagenet
+# load model pretrained on origin
 load_from = 'https://download.openmmlab.com/mmclassification/v0/vgg/vgg16_batch256_imagenet_20210208-db26f1a5.pth'  # noqa
 
 # optimizer

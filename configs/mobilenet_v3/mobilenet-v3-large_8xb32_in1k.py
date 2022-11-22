@@ -1,6 +1,6 @@
 # Refer to https://pytorch.org/blog/ml-models-torchvision-v0.9/#classification
 # ----------------------------
-# -[x] auto_augment='imagenet'
+# -[x] auto_augment='origin'
 # -[x] batch_size=128 (per gpu)
 # -[x] epochs=600
 # -[x] opt='rmsprop'

@@ -205,17 +205,17 @@ data = dict(
     train=dict(  # Train dataset config
     train=dict(            # train data config
         type=dataset_type,                  # dataset name
-        data_prefix='data/imagenet/train',  # Dataset root, when ann_file does not exist, the category information is automatically obtained from the root folder
+        data_prefix='data/origin/train',  # Dataset root, when ann_file does not exist, the category information is automatically obtained from the root folder
         pipeline=train_pipeline),           # train data pipeline
     val=dict(              # val data config
         type=dataset_type,
-        data_prefix='data/imagenet/val',
-        ann_file='data/imagenet/meta/val.txt',   #  ann_file existes, the category information is obtained from file
+        data_prefix='data/origin/val',
+        ann_file='data/origin/meta/val.txt',   #  ann_file existes, the category information is obtained from file
         pipeline=test_pipeline),
     test=dict(             # test data config
         type=dataset_type,
-        data_prefix='data/imagenet/val',
-        ann_file='data/imagenet/meta/val.txt',
+        data_prefix='data/origin/val',
+        ann_file='data/origin/meta/val.txt',
         pipeline=test_pipeline))
 evaluation = dict(       # The config to build the evaluation hook, refer to https://github.com/open-mmlab/mmdetection/blob/master/mmdet/core/evaluation/eval_hooks.py#L7 for more details.
     interval=1,          # Evaluation interval
@@ -283,9 +283,9 @@ runner = dict(max_epochs=300)
 lr_config = dict(step=[150, 200, 250])
 
 data = dict(
-    train=dict(data_prefix='mydata/imagenet/train'),
-    val=dict(data_prefix='mydata/imagenet/train', ),
-    test=dict(data_prefix='mydata/imagenet/train', )
+    train=dict(data_prefix='mydata/origin/train'),
+    val=dict(data_prefix='mydata/origin/train', ),
+    test=dict(data_prefix='mydata/origin/train', )
 )
 ```
 
